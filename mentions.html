@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - FormationPro</title>
+
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Tailwind CSS (Play CDN for standalone usage) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Config to match Dendreo aesthetic -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', // Sky blue-ish
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        neutral: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8fafc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        function App() {
+            // -- NAVIGATION STATE --
+            const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+            return (
+                <div className="font-sans text-neutral-800 bg-neutral-50 min-h-screen flex flex-col">
+
+                    {/* -- NAVBAR -- */}
+                    <nav className="fixed w-full z-50 top-0 bg-white/90 backdrop-blur-md border-b border-neutral-200 shadow-sm transition-all duration-300">
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div className="flex justify-between h-20 items-center">
+                                {/* Logo */}
+                                <a href="index.html" className="flex-shrink-0 flex items-center cursor-pointer">
+                                    <span className="font-bold text-2xl tracking-tighter text-neutral-900">
+                                        FORMATION<span className="text-primary-600">PRO</span>
+                                    </span>
+                                </a>
+
+                                {/* Desktop Menu */}
+                                <div className="hidden md:flex items-center space-x-8">
+                                    <a href="index.html" className="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Accueil</a>
+                                    <a href="index.html#catalogue" className="text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Catalogue</a>
+                                    <a href="index.html#contact" className="px-5 py-2.5 bg-neutral-900 text-white text-sm font-bold rounded-xl hover:bg-primary-600 transition-all shadow-lg shadow-neutral-500/20 hover:shadow-primary-500/30">
+                                        Contactez-nous
+                                    </a>
+                                </div>
+
+                                {/* Mobile Toggle */}
+                                <div className="md:hidden flex items-center">
+                                    <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-neutral-600 hover:text-neutral-900 p-2">
+                                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+
+                    {/* -- MAIN CONTENT -- */}
+                    <main className="flex-grow pt-32 pb-24 px-4">
+                        <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-neutral-100">
+                            <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-8 text-center">Mentions Légales</h1>
+
+                            <div className="space-y-8 text-neutral-600 leading-relaxed">
+                                <section>
+                                    <h2 className="text-xl font-bold text-neutral-900 mb-4">1. Éditeur du site</h2>
+                                    <p>
+                                        Le site <strong>FormationPro</strong> est édité par la société <strong>FormationPro SAS</strong>, au capital de 10 000 euros, immatriculée au Registre du Commerce et des Sociétés sous le numéro 123 456 789 RCS Paris.
+                                    </p>
+                                    <p className="mt-2">
+                                        <strong>Siège social :</strong><br />
+                                        123 Avenue des Champs-Élysées<br />
+                                        75008 Paris<br />
+                                        France
+                                    </p>
+                                    <p className="mt-2">
+                                        <strong>Directeur de la publication :</strong> M. Jean Directeur<br />
+                                        <strong>Contact :</strong> contact@formationpro.com / 01 23 45 67 89
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h2 className="text-xl font-bold text-neutral-900 mb-4">2. Hébergement</h2>
+                                    <p>
+                                        Le site est hébergé par la société <strong>HostProvider</strong>.<br />
+                                        Adresse : 456 Rue du Datacenter, 75000 Paris, France.<br />
+                                        Téléphone : 01 98 76 54 32
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h2 className="text-xl font-bold text-neutral-900 mb-4">3. Propriété intellectuelle</h2>
+                                    <p>
+                                        L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques. La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h2 className="text-xl font-bold text-neutral-900 mb-4">4. Protection des données personnelles (RGPD)</h2>
+                                    <p>
+                                        Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de portabilité et d'effacement de vos données personnelles. Vous pouvez exercer ces droits en nous contactant à l'adresse suivante : dpo@formationpro.com.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h2 className="text-xl font-bold text-neutral-900 mb-4">5. Cookies</h2>
+                                    <p>
+                                        La navigation sur le site est susceptible de provoquer l'installation de cookie(s) sur l'ordinateur de l'utilisateur. Un cookie est un fichier de petite taille, qui ne permet pas l'identification de l'utilisateur, mais qui enregistre des informations relatives à la navigation d'un ordinateur sur un site.
+                                    </p>
+                                </section>
+                            </div>
+
+                            <div className="mt-12 text-center">
+                                <a href="index.html" className="inline-flex items-center text-primary-600 font-bold hover:text-primary-800 transition-colors">
+                                    <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                                    Retour à l'accueil
+                                </a>
+                            </div>
+                        </div>
+                    </main>
+
+                    {/* -- FOOTER -- */}
+                    <footer className="bg-neutral-50 border-t border-neutral-200 py-12 mt-auto">
+                        <div className="max-w-7xl mx-auto px-4 text-center">
+                            <p className="text-neutral-400 text-sm">
+                                &copy; 2026 FormationPro. Tous droits réservés.
+                            </p>
+                        </div>
+                    </footer>
+
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>
